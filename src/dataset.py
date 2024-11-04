@@ -18,7 +18,7 @@ class RafDataset(data.Dataset):
         df = pd.read_csv(args.label_path, sep=' ', header=None)
 
         name_c = 0
-        label_c = 0
+        label_c = 1
         if phase == 'train':
             dataset = df[df[name_c].str.startswith('Training')]
         else:

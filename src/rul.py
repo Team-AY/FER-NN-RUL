@@ -14,9 +14,9 @@ class res18feature(nn.Module):
 
         #'affectnet_baseline/resnet18_msceleb.pth'
         res18 = ResNet(block=BasicBlock, n_blocks=[2, 2, 2, 2], channels=[64, 128, 256, 512], output_dim=1000)
-        msceleb_model = torch.load(args.pretrained_backbone_path)
-        state_dict = msceleb_model['state_dict']
-        res18.load_state_dict(state_dict, strict=False)
+        #msceleb_model = torch.load(args.pretrained_backbone_path)
+        #state_dict = msceleb_model['state_dict']
+        #res18.load_state_dict(state_dict, strict=False)
 
         self.drop_rate = drop_rate
         self.out_dim = out_dim

@@ -15,11 +15,11 @@ class RafDataset(data.Dataset):
         df = pd.read_csv(args.label_path, sep=' ', header=None)
 
         name_c = 0
-        label_c = 1
+        label_c = 0
         if phase == 'train':
-            dataset = df[df[name_c].str.startswith('train')]
+            dataset = df[df[name_c].str.startswith('Training')]
         else:
-            dataset = df[df[name_c].str.startswith('test')]
+            dataset = df[df[name_c].str.startswith('Test')]
 
         # notice the raf-db label starts from 1 while label of other dataset starts from 0
         self.label = dataset.iloc[:, label_c].values - 1

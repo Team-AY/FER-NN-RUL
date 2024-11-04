@@ -8,10 +8,13 @@ from utils import *
 
 class RafDataset(data.Dataset):
     def __init__(self, args, phase, basic_aug=True, transform=None):
+        print("1")
         self.raf_path = args.raf_path
         self.phase = phase
         self.basic_aug = basic_aug
         self.transform = transform
+        
+        print("2")
         df = pd.read_csv(args.label_path, sep=' ', header=None)
 
         name_c = 0
@@ -22,15 +25,17 @@ class RafDataset(data.Dataset):
             dataset = df[df[name_c].str.startswith('Test')]
 
         # notice the raf-db label starts from 1 while label of other dataset starts from 0
+        print("3")
         self.label = dataset.iloc[:, label_c].values
         images_names = dataset.iloc[:, name_c].values
         self.aug_func = [filp_image, add_g]
         self.file_paths = []
-
+        print(images_names)
         for f in images_names:
             f = f.split(".")[0]
             f += '.jpg'
             file_name = os.path.join(self.raf_path, 'images', f)
+            print("4")
             self.file_paths.append(file_name)
             
 

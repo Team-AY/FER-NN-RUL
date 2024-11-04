@@ -29,8 +29,8 @@ class RafDataset(data.Dataset):
 
         for f in images_names:
             f = f.split(".")[0]
-            f += '_aligned.jpg'
-            file_name = os.path.join(self.raf_path, 'Image/aligned', f)
+            f += '.jpg'
+            file_name = os.path.join(self.raf_path, 'images', f)
             self.file_paths.append(file_name)
             
 

@@ -22,7 +22,7 @@ class RafDataset(data.Dataset):
             dataset = df[df[name_c].str.startswith('Test')]
 
         # notice the raf-db label starts from 1 while label of other dataset starts from 0
-        self.label = dataset.iloc[:, label_c].values - 1
+        self.label = dataset.iloc[:, label_c].values
         images_names = dataset.iloc[:, name_c].values
         self.aug_func = [filp_image, add_g]
         self.file_paths = []

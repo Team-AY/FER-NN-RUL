@@ -26,6 +26,7 @@ class RafDataset(data.Dataset):
 
         # notice the raf-db label starts from 1 while label of other dataset starts from 0
         print("3")
+        print(dataset)
         self.label = dataset.iloc[:, label_c].values
         images_names = dataset.iloc[:, name_c].values
         self.aug_func = [filp_image, add_g]
@@ -35,7 +36,6 @@ class RafDataset(data.Dataset):
             f = f.split(".")[0]
             f += '.jpg'
             file_name = os.path.join(self.raf_path, 'images', f)
-            print("4")
             self.file_paths.append(file_name)
             
 

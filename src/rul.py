@@ -47,6 +47,5 @@ class res18feature(nn.Module):
             return mixed_x, y_a, y_b, att1, att2
         else:
             x = self.features(x)
-            print("in the foreward")
             output = self.mu(x)
             return output

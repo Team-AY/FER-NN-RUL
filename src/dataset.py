@@ -27,7 +27,7 @@ class RafDataset(data.Dataset):
         # notice the raf-db label starts from 1 while label of other dataset starts from 0
         print("3")
         print(dataset)
-        self.label = dataset.iloc[:, label_c].values
+        self.label = dataset.iloc[:, label_c].values-1
         images_names = dataset.iloc[:, name_c].values
         self.aug_func = [filp_image, add_g]
         self.file_paths = []
